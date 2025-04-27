@@ -1,22 +1,22 @@
 .App {
-  text-align: center;
-  margin-top: 50px;
+  text-align: center;  /* Centers all text inside the App component */
+  margin-top: 50px;     /* Adds space from the top of the page */
 }
 
 .slideshow-container {
-  width: 80%;
-  max-width: 600px;
-  margin: auto;
-  overflow: hidden;
+  width: 80%;                 /* The slideshow container will take up 80% of the width of its parent */
+  max-width: 600px;           /* The container width will not exceed 600px */
+  margin: auto;               /* Centers the slideshow container horizontally */
+  overflow: hidden;           /* Ensures that anything outside the container's boundaries will be hidden (useful for slides transitioning) */
 }
 
 .slide-image {
-  width: 100%;
-  height: auto; /* maintain aspect ratio */
-  max-height: 500px; /* limit super tall images */
-  object-fit: contain; /* make sure image fits without stretching */
-  display: block;
-  transition: opacity 1s ease-in-out;
-  border-radius: 10px; /* optional: make edges a little rounded */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* optional: add a soft shadow */
+  width: 100%;                /* Makes the image fill the full width of the container */
+  height: auto;               /* Keeps the aspect ratio intact for images */
+  max-height: 500px;          /* Prevents images from becoming excessively tall */
+  object-fit: contain;        /* Ensures that images are scaled to fit the container without stretching (preserves aspect ratio) */
+  display: block;             /* Makes the image behave like a block element (removes any space below the image) */
+  transition: opacity 1s ease-in-out; /* Smooth fade transition when images change */
+  border-radius: 10px;        /* Adds rounded corners to images (optional, but gives a softer look) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow around the image */
 }
