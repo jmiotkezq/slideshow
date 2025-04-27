@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+
+
+
+
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
+const images = [
+  'https://via.placeholder.com/600x400?text=Image+1',
+  'https://via.placeholder.com/600x400?text=Image+2',
+  'https://via.placeholder.com/600x400?text=Image+3'
+];
+
 function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="slideshow-container">
+        <img src={images[currentIndex]} alt="Slideshow" className="slide-image" />
+      </div>
     </div>
   );
 }
