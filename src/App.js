@@ -3,9 +3,9 @@ import './App.css';
 
 function App() {
   const images = [
-    "/images/image1.jpg",
-    "/images/image2.jpg",
-    "/images/image3.jpg"
+    process.env.PUBLIC_URL + "/images/image1.jpg",
+    process.env.PUBLIC_URL + "/images/image2.jpg",
+    process.env.PUBLIC_URL + "/images/image3.jpg"
   ];
 
   const [currentImage, setCurrentImage] = useState(0);

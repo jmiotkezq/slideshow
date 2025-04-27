@@ -12,6 +12,11 @@
 
 .slide-image {
   width: 100%;
+  height: auto; /* maintain aspect ratio */
+  max-height: 500px; /* limit super tall images */
+  object-fit: contain; /* make sure image fits without stretching */
   display: block;
   transition: opacity 1s ease-in-out;
+  border-radius: 10px; /* optional: make edges a little rounded */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* optional: add a soft shadow */
 }
