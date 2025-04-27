@@ -1,31 +1,30 @@
-
-
-
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from "react";
 import './App.css';
 
-const images = [
-  'https://via.placeholder.com/600x400?text=Image+1',
-  'https://via.placeholder.com/600x400?text=Image+2',
-  'https://via.placeholder.com/600x400?text=Image+3'
-];
-
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = [
+    "/images/image1.jpg",
+    "/images/image2.jpg",
+    "/images/image3.jpg"
+  ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
+  const [currentImage, setCurrentImage] = useState(0);
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
-  }, []);
+  const nextImage = () => {
+    setCurrentImage((currentImage + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((currentImage - 1 + images.length) % images.length);
+  };
 
   return (
     <div className="App">
-      <div className="slideshow-container">
-        <img src={images[currentIndex]} alt="Slideshow" className="slide-image" />
+      <h1>Image Slideshow</h1>
+      <div className="slideshow">
+        <button onClick={prevImage}>Previous</button>
+        <img src={images[currentImage]} alt="Slideshow" />
+        <button onClick={nextImage}>Next</button>
       </div>
     </div>
   );
